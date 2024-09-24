@@ -3,6 +3,8 @@ html, body {
     width: 100%;
     height: 100%;
     margin: 0px;
+    background-color: #212121; /* Dark background */
+    font-family: 'Poppins', sans-serif; /* Poppins font */
 }
 
 /* Remove underline from links */
@@ -25,6 +27,7 @@ header {
     background-color: #333; /* Dark gray background */
     padding: 20px;
     text-align: center;
+    color: #ffd700; /* Golden text */
 }
 
 .top-left {
@@ -34,19 +37,30 @@ header {
 
 .team-rebellion {
     font-size: 14px;
-    color: #fff; /* White text */
+    color: #ffd700; /* Golden text */
 }
 
 #main-title {
     font-size: 36px;
     font-weight: bold;
-    color: #fff; /* White text */
+    color: #ffd700; /* Golden text */
     margin-bottom: 10px;
+    animation: glow 2s infinite; /* Animation */
+}
+
+/* Animation */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px #ffd700;
+    }
+    100% {
+        text-shadow: 0 0 20px #ffd700;
+    }
 }
 
 /* Content styles */
 .content-container {
-    max-width: 800px;
+    max-width: 1200px; /* Wider layout */
     margin: 40px auto;
     padding: 20px;
     background-color: #fff; /* White background */
@@ -58,29 +72,39 @@ header {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
+    color: #ffd700; /* Golden text */
 }
 
 .description {
     font-size: 18px;
     margin-bottom: 20px;
+    color: #fff; /* White text */
 }
 
 .get-knowledge-button {
-    background-color: #4CAF50; /* Green background */
-    color: #fff; /* White text */
+    background-color: #ffd700; /* Golden background */
+    color: #333; /* Dark text */
     border: none;
     padding: 10px 20px;
     font-size: 18px;
     cursor: pointer;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    animation: pulse 2s infinite; /* Animation */
 }
 
 .get-knowledge-button:hover {
-    background-color: #3e8e41; /* Darker green background on hover */
+    background-color: #ffc107; /* Darker golden background on hover */
 }
 
-.divine-button {
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+/* Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
 }
 
 /* Footer styles */
@@ -88,7 +112,7 @@ header {
     background-color: #333; /* Dark gray background */
     padding: 10px;
     text-align: center;
-    color: #fff; /* White text */
+    color: #ffd700; /* Golden text */
 }
 
 .copyright {
