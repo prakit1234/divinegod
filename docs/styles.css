@@ -1,4 +1,4 @@
-/* Make the page full screen */
+/* Global styles */
 html, body {
     width: 100%;
     height: 100%;
@@ -7,17 +7,14 @@ html, body {
     font-family: 'Poppins', sans-serif; /* Poppins font */
 }
 
-/* Remove underline from links */
 a {
     text-decoration: none;
 }
 
-/* Bold font styles */
 .bold-font {
     font-weight: bold;
 }
 
-/* Aesthetic font styles */
 .divine-font {
     font-family: 'Great Vibes', cursive;
 }
@@ -48,7 +45,6 @@ header {
     animation: glow 2s infinite; /* Animation */
 }
 
-/* Animation */
 @keyframes glow {
     0% {
         text-shadow: 0 0 10px #ffd700;
@@ -97,7 +93,6 @@ header {
     background-color: #ffc107; /* Darker golden background on hover */
 }
 
-/* Animation */
 @keyframes pulse {
     0% {
         transform: scale(1);
