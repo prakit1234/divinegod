@@ -36,20 +36,34 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 2px;
-    height: 2px;
-    background-color: #fff;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
     animation: particle 5s infinite;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-.particle:nth-child(2n) {
-    animation-delay: 1s;
+.particle:nth-child(1) {
+    background-color: #FF69B4; /* pink */
 }
 
-.particle:nth-child(3n) {
-    animation-delay: 2s;
+.particle:nth-child(2) {
+    background-color: #33CC33; /* green */
 }
+
+.particle:nth-child(3) {
+    background-color: #66CCCC; /* blue-green */
+}
+
+.particle:nth-child(4) {
+    background-color: #FFC67D; /* orange-yellow */
+}
+
+.particle:nth-child(5) {
+    background-color: #8BC34A; /* yellow-green */
+}
+
+/* Add more colors as needed */
 
 @keyframes particle {
     0% {
@@ -121,7 +135,7 @@ body {
     animation: button-glow 2s infinite;
 }
 
-@keyframes button-g low {
+@keyframes button-glow {
     0% {
         opacity: 0;
     }
