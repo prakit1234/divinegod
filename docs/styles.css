@@ -1,18 +1,26 @@
-/* Global Styles */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* Make the page full screen */
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
 }
 
-body {
-    font-family: 'Open Sans', sans-serif;
-    background-color: #f7f7f7; /* Light gray background */
+/* Remove underline from links */
+a {
+    text-decoration: none;
 }
 
-/* Header Styles */
+/* Bold font styles */
+.bold-font {
+    font-weight: bold;
+}
 
+/* Aesthetic font styles */
+.divine-font {
+    font-family: 'Great Vibes', cursive;
+}
+
+/* Header styles */
 header {
     background-color: #333; /* Dark gray background */
     padding: 20px;
@@ -36,12 +44,7 @@ header {
     margin-bottom: 10px;
 }
 
-.divine-font {
-    font-family: 'Great Vibes', cursive; /* Aesthetic font */
-}
-
-/* Content Styles */
-
+/* Content styles */
 .content-container {
     max-width: 800px;
     margin: 40px auto;
@@ -80,8 +83,7 @@ header {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
 }
 
-/* Footer Styles */
-
+/* Footer styles */
 .footer-container {
     background-color: #333; /* Dark gray background */
     padding: 10px;
