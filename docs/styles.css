@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #1a1d23; /* dark blue background */
+    background-color: #f7f7f7; /* light gray background */
 }
 
 .container {
@@ -23,26 +23,43 @@ body {
     overflow: hidden;
 }
 
-.stars {
+.particles {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background-image: radial-gradient(farthest-corner at 50% 50%, #fff, rgba(255, 255, 255, 0));
-    background-size: 200px 200px;
-    animation: stars 10s infinite;
 }
 
-.clouds {
+.particle {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
-    background-size: 100% 200px;
-    animation: clouds 20s infinite;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: particle 5s infinite;
+}
+
+.particle:nth-child(2n) {
+    animation-delay: 1s;
+}
+
+.particle:nth-child(3n) {
+    animation-delay: 2s;
+}
+
+@keyframes particle {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
 }
 
 .title-container {
@@ -51,23 +68,30 @@ body {
 }
 
 .title {
-    font-size: 64px;
+    font-size: 48px;
     font-weight: bold;
-    color: #fff;
+    color: #333;
     text-align: center;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.description {
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .button-container {
     position: relative;
     z-index: 1;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
-.get-knowledge-button {
-    background-color: #007bff; /* blue button */
-    color: #fff;
-    font-size: 24px;
+.get-knowledge-button, .explore-button {
+    background-color: #fff;
+    color: #333;
+    font-size: 18px;
     font-weight: bold;
     padding: 10px 20px;
     border: none;
@@ -76,16 +100,16 @@ body {
     transition: background-color 0.3s;
 }
 
-.get-knowledge-button:hover {
-    background-color: #0069d9; /* darker blue on hover */
+.get-knowledge-button:hover, .explore-button:hover {
+    background-color: #f2f2f2;
 }
 
-.get-knowledge-button span {
-    position: relative;
-    z-index: 1;
+.get-knowledge-button i, .explore-button i {
+    font-size: 24px;
+    margin-left: 10px;
 }
 
-.get-knowledge-button::before {
+.get-knowledge-button::before, .explore-button::before {
     content: "";
     position: absolute;
     top: 0;
@@ -97,25 +121,7 @@ body {
     animation: button-glow 2s infinite;
 }
 
-@keyframes stars {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-100vh);
-    }
-}
-
-@keyframes clouds {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-100vw);
-    }
-}
-
-@keyframes button-glow {
+@keyframes button-g low {
     0% {
         opacity: 0;
     }
