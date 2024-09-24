@@ -1,115 +1,128 @@
-/* Global styles */
-html, body {
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1a1d23; /* dark blue background */
+}
+
+.container {
     width: 100%;
-    height: 100%;
-    margin: 0px;
-    background-color: #212121; /* Dark background */
-    font-family: 'Poppins', sans-serif; /* Poppins font */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-a {
-    text-decoration: none;
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.bold-font {
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: radial-gradient(farthest-corner at 50% 50%, #fff, rgba(255, 255, 255, 0));
+    background-size: 200px 200px;
+    animation: stars 10s infinite;
+}
+
+.clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
+    background-size: 100% 200px;
+    animation: clouds 20s infinite;
+}
+
+.title-container {
+    position: relative;
+    z-index: 1;
+}
+
+.title {
+    font-size: 64px;
     font-weight: bold;
-}
-
-.divine-font {
-    font-family: 'Great Vibes', cursive;
-}
-
-/* Header styles */
-header {
-    background-color: #333; /* Dark gray background */
-    padding: 20px;
+    color: #fff;
     text-align: center;
-    color: #ffd700; /* Golden text */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.top-left {
-    float: left;
-    margin-top: 10px;
-}
-
-.team-rebellion {
-    font-size: 14px;
-    color: #ffd700; /* Golden text */
-}
-
-#main-title {
-    font-size: 36px;
-    font-weight: bold;
-    color: #ffd700; /* Golden text */
-    margin-bottom: 10px;
-    animation: glow 2s infinite; /* Animation */
-}
-
-@keyframes glow {
-    0% {
-        text-shadow: 0 0 10px #ffd700;
-    }
-    100% {
-        text-shadow: 0 0 20px #ffd700;
-    }
-}
-
-/* Content styles */
-.content-container {
-    max-width: 1200px; /* Wider layout */
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #fff; /* White background */
-    border: 1px solid #ddd; /* Light gray border */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
-}
-
-.welcome-header {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #ffd700; /* Golden text */
-}
-
-.description {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #fff; /* White text */
+.button-container {
+    position: relative;
+    z-index: 1;
+    margin-top: 20px;
 }
 
 .get-knowledge-button {
-    background-color: #ffd700; /* Golden background */
-    color: #333; /* Dark text */
-    border: none;
+    background-color: #007bff; /* blue button */
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
     padding: 10px 20px;
-    font-size: 18px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
-    animation: pulse 2s infinite; /* Animation */
+    transition: background-color 0.3s;
 }
 
 .get-knowledge-button:hover {
-    background-color: #ffc107; /* Darker golden background on hover */
+    background-color: #0069d9; /* darker blue on hover */
 }
 
-@keyframes pulse {
+.get-knowledge-button span {
+    position: relative;
+    z-index: 1;
+}
+
+.get-knowledge-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    animation: button-glow 2s infinite;
+}
+
+@keyframes stars {
     0% {
-        transform: scale(1);
+        transform: translateY(0);
     }
     100% {
-        transform: scale(1.1);
+        transform: translateY(-100vh);
     }
 }
 
-/* Footer styles */
-.footer-container {
-    background-color: #333; /* Dark gray background */
-    padding: 10px;
-    text-align: center;
-    color: #ffd700; /* Golden text */
+@keyframes clouds {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100vw);
+    }
 }
 
-.copyright {
-    font-size: 14px;
+@keyframes button-glow {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
