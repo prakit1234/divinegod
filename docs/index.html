@@ -1,29 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divine Knowledge - Education for Kids</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
-</head>
-<body>
-    <header>
-        <div class="top-left">
-            <p>by Team Rebellion (We Love God)</p>
-        </div>
-        <h1 id="main-title">Divine Knowledge</h1>
-    </header>
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', serif; /* Aesthetic font */
+    background-color: #f0f8ff; /* Light background */
+    color: #333; /* Dark text for readability */
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-    <main>
-        <section id="content-section">
-            <h2>Welcome to the World of Learning</h2>
-            <p>Explore the wonders of knowledge with engaging content that teaches and entertains!</p>
-            <a href="YOUR_URL_HERE" class="get-knowledge-button">Get Knowledge</a> <!-- Replace with your URL -->
-        </section>
-    </main>
+/* Header Styles */
+header {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to right, #ffcc00, #ff6699); /* Divine gradient */
+    color: white;
+}
 
-    <footer>
-        <p>&copy; 2024 Divine Knowledge. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+.top-left {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Main Title */
+#main-title {
+    font-size: 60px;
+    margin: 10px 0;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8); /* Glowing effect */
+}
+
+/* Content Section */
+#content-section {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+}
+
+/* Get Knowledge Button */
+.get-knowledge-button {
+    display: inline-block;
+    padding: 15px 30px;
+    margin-top: 20px;
+    background-color: #ff6699; /* Button color */
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+    font-size: 20px;
+}
+
+.get-knowledge-button:hover {
+    background-color: #ff4500; /* Darker shade on hover */
+}
+
+/* Footer Styles */
+footer {
+    margin-top: auto;
+    padding: 10px;
+    background: linear-gradient(to right, #ffcc00, #ff6699);
+    color: white;
+}
