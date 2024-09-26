@@ -1,72 +1,79 @@
-const { createClient } = supabase;
-
-const supabaseUrl = 'YOUR_SUPABASE_URL'; // Replace with your Supabase URL
-const supabaseKey = 'YOUR_SUPABASE_ANON_KEY'; // Replace with your Supabase Anon Key
-const supabase = createClient(supabaseUrl, supabaseKey);
-
-const loginButton = document.getElementById('login-button');
-const registerButton = document.getElementById('register-button');
-const googleLoginButton = document.getElementById('google-login');
-const showRegisterButton = document.getElementById('show-register');
-const showLoginButton = document.getElementById('show-login');
-
+// Toggle between login and register forms
 const loginForm = document.getElementById('login-form');
 const registerForm = document.getElementById('register-form');
+const showRegisterLink = document.getElementById('show-register');
+const showLoginLink = document.getElementById('show-login');
 
-// Login functionality
-loginButton.addEventListener('click', async () => {
-    const email = document.getElementById('login-email').value;
-    const password = document.getElementById('login-password').value;
+// Redirect buttons
+const loginButton = document.getElementById('login-btn');
+const registerButton = document.getElementById('register-btn');
 
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+// Messages
+const loginMessage = document.getElementById('login-message');
+const registerMessage = document.getElementById('register-message');
 
-    if (error) {
-        alert(`Login error: ${error.message}`);
+// Sample in-memory storage (for demo purposes, use local storage)
+let users = JSON.parse(localStorage.getItem('users')) || {};
+
+// Toggle between forms
+showRegisterLink.addEventListener('click', () => {
+    loginForm.classList.remove('active');
+    registerForm.classList.add('active');
+});
+
+showLoginLink.addEventListener('click', () => {
+    registerForm.classList.remove('active');
+    loginForm.classList.add('active');
+});
+
+// Handle registration
+registerButton.addEventListener('click', () => {
+    const username = document.getElementById('registerUsername').value;
+    const email = document.getElementById('registerEmail').value;
+    const password = document.getElementById('registerPassword').value;
+
+    if (users[email]) {
+        registerMessage.textContent = "User already exists!";
     } else {
-        alert('Login successful!');
-        // Redirect to your desired page after successful login
-        window.location.href = 'YOUR_REDIRECT_URL'; // Replace with the URL you want to redirect to
+        users[email] = { username, password };
+        localStorage.setItem('users', JSON.stringify(users));
+        registerMessage.textContent = "Registration successful! You can now log in.";
     }
 });
 
-// Register functionality
-registerButton.addEventListener('click', async () => {
-    const email = document.getElementById('register-email').value;
-    const password = document.getElementById('register-password').value;
+// Handle login
+loginButton.addEventListener('click', () => {
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
 
-    const { error } = await supabase.auth.signUp({ email, password });
-
-    if (error) {
-        alert(`Registration error: ${error.message}`);
+    if (users[email] && users[email].password === password) {
+        // Redirect to the main page after successful login
+        window.location.href = "https://notesgg.onrender.com"; // Redirect URL
     } else {
-        alert('Registration successful! Please check your email for confirmation.');
-        // Optionally redirect after registration
-        window.location.href = 'YOUR_REDIRECT_URL'; // Replace with the URL you want to redirect to
+        loginMessage.textContent = "Invalid email or password!";
     }
 });
 
-// Google Sign-In functionality
-googleLoginButton.addEventListener('click', async () => {
-    const { error } = await supabase.auth.signInWithOAuth({
-        provider: 'google',
-        options: {
-            redirectTo: 'YOUR_REDIRECT_URL' // Replace with the URL you want to redirect to after login
-        }
+// Google Sign-In Functionality
+function onSignIn(googleUser) {
+    const profile = googleUser.getBasicProfile();
+    const email = profile.getEmail();
+
+    // Here, you can check if the user exists in your local storage
+    if (!users[email]) {
+        // If not, register the user
+        users[email] = { username: profile.getName(), password: "" }; // You can choose to not store password
+        localStorage.setItem('users', JSON.stringify(users));
+    }
+
+    // Redirect to the main page after successful login
+    window.location.href = ""; // Redirect URL
+}
+
+// Google Sign Out Functionality
+function signOut() {
+    const auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(() => {
+        console.log('User signed out.');
     });
-
-    if (error) {
-        alert(`Google login error: ${error.message}`);
-    }
-});
-
-// Show register form
-showRegisterButton.addEventListener('click', () => {
-    loginForm.style.display = 'none';
-    registerForm.style.display = 'block';
-});
-
-// Show login form
-showLoginButton.addEventListener('click', () => {
-    registerForm.style.display = 'none';
-    loginForm.style.display = 'block';
-});
+}
