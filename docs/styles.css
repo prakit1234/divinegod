@@ -3,7 +3,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f7f7f7; /* Light gray background */
+    background-color: #000; /* Black background for better contrast */
+    overflow: hidden; /* Prevents scroll bars from appearing */
 }
 
 /* Full-screen container */
@@ -25,7 +26,6 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    overflow: hidden;
     z-index: -1;
 }
 
@@ -34,55 +34,56 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
 }
 
-/* Particle styling */
+/* Particle styles for tiny dots */
 .particle {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 10px;
-    height: 10px;
+    width: 3px;
+    height: 3px;
+    background-color: #FFD700; /* Golden color */
     border-radius: 50%;
-    animation: float 5s infinite, move 10s infinite;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: float 5s infinite ease-in-out, move 10s infinite ease-in-out;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* Soft golden glow */
 }
 
-/* Different colored particles */
-.particle:nth-child(1) { background-color: #FFD700; /* Gold */ }
-.particle:nth-child(2) { background-color: #FF69B4; /* Pink */ }
-.particle:nth-child(3) { background-color: #33CC33; /* Green */ }
-.particle:nth-child(4) { background-color: #66CCCC; /* Blue-green */ }
-.particle:nth-child(5) { background-color: #8BC34A; /* Yellow-green */ }
+/* Multiple particles with different animations */
+.particle:nth-child(1) { top: 10%; left: 20%; }
+.particle:nth-child(2) { top: 40%; left: 50%; }
+.particle:nth-child(3) { top: 60%; left: 30%; }
+.particle:nth-child(4) { top: 80%; left: 70%; }
+.particle:nth-child(5) { top: 50%; left: 80%; }
+.particle:nth-child(6) { top: 70%; left: 40%; }
+.particle:nth-child(7) { top: 30%; left: 90%; }
+.particle:nth-child(8) { top: 20%; left: 60%; }
+.particle:nth-child(9) { top: 10%; left: 90%; }
+.particle:nth-child(10) { top: 90%; left: 20%; }
 
-/* Add more particles as needed */
-
-/* Particle animations */
+/* Floating and moving animations */
 @keyframes float {
     0% {
-        transform: translate(-50%, -50%) scale(0.5);
-        opacity: 0;
+        transform: translateY(0);
+        opacity: 0.7;
     }
     50% {
-        transform: translate(-50%, -50%) scale(1.2);
+        transform: translateY(-50px);
         opacity: 1;
     }
     100% {
-        transform: translate(-50%, -50%) scale(0.5);
-        opacity: 0;
+        transform: translateY(0);
+        opacity: 0.7;
     }
 }
 
 @keyframes move {
     0% {
-        left: 50%;
-        top: 50%;
+        transform: translateX(0);
     }
     100% {
-        left: 60%;
-        top: 40%;
+        transform: translateX(20px);
     }
 }
 
@@ -90,27 +91,24 @@ body {
 .title-container {
     position: relative;
     z-index: 1;
+    text-align: center;
 }
 
 .title {
     font-size: 48px;
     font-weight: bold;
-    color: #333;
-    text-align: center;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #FFD700; /* Gold color */
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* Glow effect */
 }
 
 .description {
     font-size: 18px;
-    color: #666;
-    text-align: center;
+    color: #fff;
     margin-top: 20px;
 }
 
 /* Button container */
 .button-container {
-    position: relative;
-    z-index: 1;
     margin-top: 40px;
 }
 
