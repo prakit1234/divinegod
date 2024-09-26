@@ -1,68 +1,50 @@
-// Initialize Supabase
-const supabaseUrl = 'https://irjihbqqdzmzqkkewbbu.supabase.co'; // Replace with your Supabase URL
-const supabaseAnonKey = 'process.env.SUPABASE_KEY'; // Replace with your Supabase anon key
-const supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
+const supabaseUrl = 'YOUR_SUPABASE_URL';
+const supabaseKey = 'YOUR_SUPABASE_ANON_KEY';
+const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-const authContainer = document.getElementById('auth-container');
-const registerContainer = document.getElementById('register-container');
-const authTitle = document.getElementById('auth-title');
-const toggleAuth = document.getElementById('toggleAuth');
-const toggleToLogin = document.getElementById('toggleToLogin');
-const submitBtn = document.getElementById('submitBtn');
-const registerBtn = document.getElementById('registerBtn');
-const googleSignInBtn = document.getElementById('googleSignInBtn');
+document.getElementById('login-button').onclick = async () => {
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
 
-let isLogin = true;
+    const { user, error } = await supabase.auth.signIn({ email, password });
 
-// Toggle between Login and Register
-toggleAuth.addEventListener('click', () => {
-    isLogin = false;
-    authContainer.style.display = 'none';
-    registerContainer.style.display = 'flex';
-});
-
-toggleToLogin.addEventListener('click', () => {
-    isLogin = true;
-    registerContainer.style.display = 'none';
-    authContainer.style.display = 'flex';
-});
-
-// Handle Login
-submitBtn.addEventListener('click', async () => {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-
-    try {
-        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) throw error;
-        alert('Login successful!');
-        window.location.href = 'login-success-url.html'; // Replace with your actual URL
-    } catch (error) {
+    if (error) {
         alert(error.message);
+    } else {
+        window.location.href = 'YOUR_REDIRECT_URL'; // Change this to your desired redirect URL
     }
-});
+};
 
-// Handle Registration
-registerBtn.addEventListener('click', async () => {
+document.getElementById('register-button').onclick = async () => {
     const email = document.getElementById('register-email').value;
     const password = document.getElementById('register-password').value;
 
-    try {
-        const { data, error } = await supabase.auth.signUp({ email, password });
-        if (error) throw error;
-        alert('Registration successful!');
-        window.location.href = 'register-success-url.html'; // Replace with your actual URL
-    } catch (error) {
-        alert(error.message);
-    }
-});
+    const { user, error } = await supabase.auth.signUp({ email, password });
 
-// Google Sign-In
-googleSignInBtn.addEventListener('click', async () => {
-    try {
-        const { error } = await supabase.auth.signInWithOAuth({ provider: 'google' });
-        if (error) throw error;
-    } catch (error) {
+    if (error) {
         alert(error.message);
+    } else {
+        alert('Registration successful! Please check your email to confirm.');
+        window.location.href = 'YOUR_REDIRECT_URL'; // Change this to your desired redirect URL
     }
-});
+};
+
+document.getElementById('google-login-button').onclick = async () => {
+    const { user, session, error } = await supabase.auth.signIn({ provider: 'google' });
+
+    if (error) {
+        alert(error.message);
+    } else {
+        window.location.href = 'YOUR_REDIRECT_URL'; // Change this to your desired redirect URL
+    }
+};
+
+document.getElementById('switch-to-register').onclick = () => {
+    document.getElementById('login-form').classList.add('hidden');
+    document.getElementById('register-form').classList.remove('hidden');
+};
+
+document.getElementById('switch-to-login').onclick = () => {
+    document.getElementById('register-form').classList.add('hidden');
+    document.getElementById('login-form').classList.remove('hidden');
+};
