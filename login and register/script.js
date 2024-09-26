@@ -77,3 +77,24 @@ function signOut() {
         console.log('User signed out.');
     });
 }
+
+// Load Google API
+function loadGoogleAPI() {
+    const script = document.createElement('script');
+    script.src = 'https://apis.google.com/js/platform.js';
+    script.async = true;
+    document.body.appendChild(script);
+}
+
+// Initialize Google Sign-In
+function initGoogleSignIn() {
+    gapi.load('auth2', function() {
+        auth2 = gapi.auth2.init({
+            client_id: 'YOUR_GOOGLE_CLIENT_ID', // Replace with your Google client ID
+        });
+    });
+}
+
+// Call loadGoogleAPI to load the Google API when the page loads
+loadGoogleAPI();
+
