@@ -1,65 +1,111 @@
-// Initialize Supabase
-const supabaseUrl = 'https://irjihbqqdzmzqkkewbbu.supabase.co'; // Replace with your Supabase URL
-const supabaseAnonKey = 'process.env.SUPABASE_KEY'; // Replace with your Supabase anon key
-const supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-const authContainer = document.getElementById('auth-container');
-const authTitle = document.getElementById('auth-title');
-const toggleAuth = document.getElementById('toggleAuth');
-const submitBtn = document.getElementById('submitBtn');
-const googleSignInBtn = document.getElementById('googleSignInBtn');
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+}
 
-let isLogin = true;
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+}
 
-// Toggle between Login and Register
-toggleAuth.addEventListener('click', () => {
-    isLogin = !isLogin;
-    if (isLogin) {
-        authTitle.textContent = 'Login';
-        submitBtn.textContent = 'Login';
-        toggleAuth.textContent = "Don't have an account? Register here";
-    } else {
-        authTitle.textContent = 'Register';
-        submitBtn.textContent = 'Register';
-        toggleAuth.textContent = 'Already have an account? Login here';
-    }
-});
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
 
-// Handle Submit (Login or Register)
-submitBtn.addEventListener('click', async () => {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: transparent;
+    z-index: -1;
+}
 
-    try {
-        if (isLogin) {
-            // Log in with email
-            const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-            if (error) throw error;
-            alert('Login successful!');
-            // Redirect after login success
-            window.location.href = 'login-success-url.html'; // Replace with your actual URL
-        } else {
-            // Register with email
-            const { data, error } = await supabase.auth.signUp({ email, password });
-            if (error) throw error;
-            alert('Registration successful!');
-            // Redirect after registration success
-            window.location.href = 'register-success-url.html'; // Replace with your actual URL
-        }
-    } catch (error) {
-        alert(error.message);
-    }
-});
+.title-container {
+    margin-bottom: 40px;
+    text-align: center;
+}
 
-// Google Sign-In
-googleSignInBtn.addEventListener('click', async () => {
-    try {
-        const { data, error } = await supabase.auth.signInWithOAuth({ provider: 'google' });
-        if (error) throw error;
-        alert('Google Sign-In successful!');
-        // Redirect after Google Sign-In success
-        window.location.href = 'google-signin-success-url.html'; // Replace with your actual URL
-    } catch (error) {
-        alert(error.message);
-    }
-});
+.title {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.description {
+    font-size: 18px;
+}
+
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auth-container input {
+    width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+}
+
+.submit-button, .google-button {
+    width: 320px;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.submit-button:hover {
+    background-color: #218838;
+}
+
+.google-button {
+    background-color: #db4437;
+    color: white;
+}
+
+.google-button:hover {
+    background-color: #c23321;
+}
+
+#toggleAuth, #toggleToLogin {
+    margin-top: 20px;
+    cursor: pointer;
+    color: #007bff;
+}
+
+#toggleAuth:hover, #toggleToLogin:hover {
+    text-decoration: underline;
+}
