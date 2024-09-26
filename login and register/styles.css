@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background: url('https://images.unsplash.com/photo-1567006785343-7e1e07459418?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGRpdmluZSUyMGJvdHRvbXxlbnwwfHx8fDE2OTM0Nzk0ODc&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center fixed;
+    background-image: url('https://www.example.com/your-divine-background-image.jpg'); /* Change this to your divine background image URL */
     background-size: cover;
     color: #ffffff;
     text-align: center;
@@ -27,7 +27,7 @@ header {
 
 /* Auth Section Styling */
 form {
-    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
     padding: 20px;
     border-radius: 10px;
     width: 300px;
