@@ -67,7 +67,7 @@ function onSignIn(googleUser) {
     }
 
     // Redirect to the main page after successful login
-    window.location.href = ""; // Redirect URL
+    window.location.href = "https://notesgg.onrender.com"; // Redirect URL
 }
 
 // Google Sign Out Functionality
@@ -97,4 +97,3 @@ function initGoogleSignIn() {
 
 // Call loadGoogleAPI to load the Google API when the page loads
 loadGoogleAPI();
-
