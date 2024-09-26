@@ -5,39 +5,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Particles Background</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            color: white;
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background-color: white;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: fall 5s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        .title-container {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .button-container button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: transparent;
+            border: 2px solid white;
+            cursor: pointer;
+        }
+
+        .button-container button:hover {
+            background-color: white;
+            color: black;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <div class="background">
-            <div class="particles">
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                  <div class="particle"></div>
-                  <div class="particle"></div>
-                  <div class="particle"></div>
-                  <div class="particle"></div>
-                  <div class="particle"></div>
-                  <div class="particle"></div>
-                  <div class="particle"></div>
-                
-            </div>
-        </div>
+        <div class="background" id="particle-container"></div>
         <div class="title-container">
             <h1 class="title">GOD AND HIS STORIES</h1>
-            <p class="description">Lets's see and visit the God's destiny and his stories of how God defeated Evil.</p>
+            <p class="description">Let's see and visit God's destiny and his stories of how God defeated Evil.</p>
             <div class="button-container">
                 <button class="get-knowledge-button">Get Knowledge <i class="fas fa-book"></i></button>
                 <button class="explore-button">Explore <i class="fas fa-compass"></i></button>
             </div>
         </div>
     </div>
+
+    <script>
+        // Generate more particles
+        const particleContainer = document.getElementById('particle-container');
+        const numberOfParticles = 150; // Adjust this number to generate more or fewer particles
+
+        for (let i = 0; i < numberOfParticles; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.left = `${Math.random() * 100}vw`; // Random horizontal position
+            particle.style.animationDuration = `${Math.random() * 3 + 2}s`; // Random speed
+            particle.style.opacity = `${Math.random() * 0.5 + 0.3}`; // Random opacity
+            particle.style.width = particle.style.height = `${Math.random() * 10 + 5}px`; // Random size
+            particleContainer.appendChild(particle);
+        }
+    </script>
 </body>
 </html>
+
