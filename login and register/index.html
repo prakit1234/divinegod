@@ -3,42 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GOD AND HIS STORIES - Login</title>
+    <title>GOD AND HIS STORIES - Login/Register</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/supabase-js/2.0.4/supabase.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"> <!-- Replace with your Google client ID -->
 </head>
 <body>
-    <div class="container">
-        <div class="background">
-            <div class="particles">
-                <!-- Particle divs -->
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-            </div>
-        </div>
-        <div class="form-container" id="form-container">
-            <h1 class="title">GOD AND HIS STORIES</h1>
-            <div id="login-form">
-                <h2>Login</h2>
-                <input type="email" id="login-email" placeholder="Email" required>
-                <input type="password" id="login-password" placeholder="Password" required>
-                <button id="login-button">Login</button>
-                <button id="google-login">Login with Google</button>
-                <button id="show-register">Register</button>
-            </div>
-            <div id="register-form" style="display: none;">
-                <h2>Register</h2>
-                <input type="email" id="register-email" placeholder="Email" required>
-                <input type="password" id="register-password" placeholder="Password" required>
-                <button id="register-button">Register</button>
-                <button id="show-login">Back to Login</button>
-            </div>
-        </div>
-    </div>
+    <header>
+        <h1 id="title">GOD AND HIS STORIES - Login/Register</h1>
+    </header>
 
-    <script src="script.js"></script>
+    <main>
+        <section id="auth-section">
+            <!-- Login Form -->
+            <form id="login-form" class="active">
+                <h2>Login</h2>
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button class="button" id="login-btn" type="button">Login</button>
+                <p>Don't have an account? <span class="toggle-link" id="show-register">Register here</span></p>
+                <p id="login-message" class="message"></p>
+            </form>
+
+            <!-- Register Form -->
+            <form id="register-form">
+                <h2>Register</h2>
+                <input type="text" id="registerUsername" placeholder="Username" required>
+                <input type="email" id="registerEmail" placeholder="Email" required>
+                <input type="password" id="registerPassword" placeholder="Password" required>
+                <button class="button" id="register-btn" type="button">Register</button>
+                <p>Already have an account? <span class="toggle-link" id="show-login">Login here</span></p>
+                <p id="register-message" class="message"></p>
+            </form>
+
+            <div class="g-signin2" data-onsuccess="onSignIn"></div> <!-- Google Sign-In button -->
+        </section>
+    </main>
+
+    <script src="script.js"></script> <!-- Link to JavaScript file -->
 </body>
 </html>
