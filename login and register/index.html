@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GOD AND HIS STORIES - Login</title>
+    <title>GOD AND HIS STORIES</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/supabase-js/2.0.4/supabase-js.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/supabase-js/1.35.1/supabase.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -14,27 +14,23 @@
         </div>
         <div class="title-container">
             <h1 class="title">GOD AND HIS STORIES</h1>
-            <p class="description">Let’s see and visit God's destiny and His stories of how God defeated Evil.</p>
+            <div class="auth-container">
+                <div id="login-form" class="form">
+                    <input type="email" id="login-email" placeholder="Email" required>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                    <button id="login-button">Login</button>
+                    <button id="google-login-button">Login with Google</button>
+                    <button id="switch-to-register">Register</button>
+                </div>
+                <div id="register-form" class="form hidden">
+                    <input type="email" id="register-email" placeholder="Email" required>
+                    <input type="password" id="register-password" placeholder="Password" required>
+                    <button id="register-button">Register</button>
+                    <button id="switch-to-login">Login</button>
+                </div>
+            </div>
         </div>
-
-        <div id="auth-container" class="auth-container">
-            <h2 id="auth-title">Login</h2>
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button id="submitBtn" class="submit-button">Login</button>
-            <button id="googleSignInBtn" class="google-button">Login with Google</button>
-            <p id="toggleAuth">Don't have an account? Register here</p>
-        </div>
-
-        <div id="register-container" class="auth-container" style="display: none;">
-            <h2 id="register-title">Register</h2>
-            <input type="email" id="register-email" placeholder="Email" required>
-            <input type="password" id="register-password" placeholder="Password" required>
-            <button id="registerBtn" class="submit-button">Register</button>
-            <p id="toggleToLogin">Already have an account? Login here</p>
-        </div>
-
-        <script src="script.js"></script>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
