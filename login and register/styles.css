@@ -3,8 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background: url('https://images.unsplash.com/photo-1567006785343-7e1e07459418?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGRpdmluZSUyMGJvdHRvbXxlbnwwfHx8fDE2OTM0Nzk0ODc&ixlib=rb-4.0.3&q=80&w=1080
-') no-repeat center center fixed; /* Divine background image */
+    background: url('https://images.unsplash.com/photo-1567006785343-7e1e07459418?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGRpdmluZSUyMGJvdHRvbXxlbnwwfHx8fDE2OTM0Nzk0ODc&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center fixed;
     background-size: cover;
     color: #ffffff;
     text-align: center;
@@ -22,13 +21,13 @@ header {
 
 #title {
     font-size: 50px;
-    color: #FFD700; /* Gold color */
-    text-shadow: 2px 2px 10px rgba(255, 215, 0, 0.8);
+    color: #ff4500;
+    text-shadow: 2px 2px 10px rgba(255, 69, 0, 0.7);
 }
 
 /* Auth Section Styling */
 form {
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
     padding: 20px;
     border-radius: 10px;
     width: 300px;
@@ -53,7 +52,7 @@ button {
     width: 100%;
     padding: 15px;
     margin-top: 10px;
-    background-color: #FFD700; /* Gold color */
+    background-color: #ff4500;
     border: none;
     border-radius: 30px;
     color: white;
@@ -62,18 +61,18 @@ button {
 }
 
 button:hover {
-    background-color: #FFC300; /* Slightly darker gold on hover */
+    background-color: #ff6347;
 }
 
 .toggle-link {
-    color: #FFD700; /* Gold color */
+    color: #ff6347;
     cursor: pointer;
     text-decoration: underline;
     margin-top: 15px;
 }
 
 .message {
-    color: #ff6347; /* Error message color */
+    color: #ff6347;
     margin-top: 10px;
 }
 
