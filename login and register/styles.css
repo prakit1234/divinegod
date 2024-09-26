@@ -3,7 +3,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom right, #222, #444);
+    background: url('https://example.com/your-divine-background.jpg') no-repeat center center fixed; /* Divine background image */
+    background-size: cover;
     color: #ffffff;
     text-align: center;
     height: 100vh;
@@ -20,13 +21,13 @@ header {
 
 #title {
     font-size: 50px;
-    color: #ff4500;
-    text-shadow: 2px 2px 10px rgba(255, 69, 0, 0.7);
+    color: #FFD700; /* Gold color */
+    text-shadow: 2px 2px 10px rgba(255, 215, 0, 0.8);
 }
 
 /* Auth Section Styling */
 form {
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
     padding: 20px;
     border-radius: 10px;
     width: 300px;
@@ -51,7 +52,7 @@ button {
     width: 100%;
     padding: 15px;
     margin-top: 10px;
-    background-color: #ff4500;
+    background-color: #FFD700; /* Gold color */
     border: none;
     border-radius: 30px;
     color: white;
@@ -60,18 +61,18 @@ button {
 }
 
 button:hover {
-    background-color: #ff6347;
+    background-color: #FFC300; /* Slightly darker gold on hover */
 }
 
 .toggle-link {
-    color: #ff6347;
+    color: #FFD700; /* Gold color */
     cursor: pointer;
     text-decoration: underline;
     margin-top: 15px;
 }
 
 .message {
-    color: #ff6347;
+    color: #ff6347; /* Error message color */
     margin-top: 10px;
 }
 
