@@ -1,139 +1,32 @@
-/* Reset styles */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7; /* Light gray background */
-}
 
-/* Full-screen container */
-.container {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Particles Background</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Background with floating particles -->
+        <div class="background">
+            <div class="particles">
+                <!-- Empty container, particles will be created via CSS -->
+            </div>
+        </div>
 
-/* Background with particles */
-.background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    z-index: -1;
-}
+        <!-- Title and description -->
+        <div class="title-container">
+            <h1 class="title">GOD AND HIS STORIES</h1>
+            <p class="description">Let's see and visit God's destiny and his stories of how God defeated Evil.</p>
 
-.particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-}
-
-/* Particle styling */
-.particle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    animation: float 5s infinite, move 10s infinite;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
-
-/* Different colored particles */
-.particle:nth-child(1) { background-color: #FFD700; /* Gold */ }
-.particle:nth-child(2) { background-color: #FF69B4; /* Pink */ }
-.particle:nth-child(3) { background-color: #33CC33; /* Green */ }
-.particle:nth-child(4) { background-color: #66CCCC; /* Blue-green */ }
-.particle:nth-child(5) { background-color: #8BC34A; /* Yellow-green */ }
-
-/* Add more particles as needed */
-
-/* Particle animations */
-@keyframes float {
-    0% {
-        transform: translate(-50%, -50%) scale(0.5);
-        opacity: 0;
-    }
-    50% {
-        transform: translate(-50%, -50%) scale(1.2);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(-50%, -50%) scale(0.5);
-        opacity: 0;
-    }
-}
-
-@keyframes move {
-    0% {
-        left: 50%;
-        top: 50%;
-    }
-    100% {
-        left: 60%;
-        top: 40%;
-    }
-}
-
-/* Title and description styles */
-.title-container {
-    position: relative;
-    z-index: 1;
-}
-
-.title {
-    font-size: 48px;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.description {
-    font-size: 18px;
-    color: #666;
-    text-align: center;
-    margin-top: 20px;
-}
-
-/* Button container */
-.button-container {
-    position: relative;
-    z-index: 1;
-    margin-top: 40px;
-}
-
-/* Buttons */
-.get-knowledge-button, .explore-button {
-    background-color: #fff;
-    color: #333;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover */
-}
-
-/* Button hover effects */
-.get-knowledge-button:hover {
-    background-color: #FF69B4; /* Pink on hover */
-    color: #fff; /* White text on hover */
-}
-
-.explore-button:hover {
-    background-color: #33CC33; /* Green on hover */
-    color: #fff; /* White text on hover */
-}
+            <!-- Button container -->
+            <div class="button-container">
+                <button class="get-knowledge-button">Get Knowledge <i class="fas fa-book"></i></button>
+                <button class="explore-button">Explore <i class="fas fa-compass"></i></button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
