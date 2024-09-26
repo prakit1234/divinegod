@@ -3,34 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GOD AND HIS STORIES</title>
+    <title>GOD AND HIS STORIES - Login</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/supabase-js/1.35.1/supabase.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/supabase-js/2.0.4/supabase.min.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="background">
-            <div class="particles"></div>
+            <div class="particles">
+                <!-- Particle divs -->
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
         </div>
-        <div class="title-container">
+        <div class="form-container" id="form-container">
             <h1 class="title">GOD AND HIS STORIES</h1>
-            <div class="auth-container">
-                <div id="login-form" class="form">
-                    <input type="email" id="login-email" placeholder="Email" required>
-                    <input type="password" id="login-password" placeholder="Password" required>
-                    <button id="login-button">Login</button>
-                    <button id="google-login-button">Login with Google</button>
-                    <button id="switch-to-register">Register</button>
-                </div>
-                <div id="register-form" class="form hidden">
-                    <input type="email" id="register-email" placeholder="Email" required>
-                    <input type="password" id="register-password" placeholder="Password" required>
-                    <button id="register-button">Register</button>
-                    <button id="switch-to-login">Login</button>
-                </div>
+            <div id="login-form">
+                <h2>Login</h2>
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button id="login-button">Login</button>
+                <button id="google-login">Login with Google</button>
+                <button id="show-register">Register</button>
+            </div>
+            <div id="register-form" style="display: none;">
+                <h2>Register</h2>
+                <input type="email" id="register-email" placeholder="Email" required>
+                <input type="password" id="register-password" placeholder="Password" required>
+                <button id="register-button">Register</button>
+                <button id="show-login">Back to Login</button>
             </div>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
