@@ -1,6 +1,6 @@
 // Initialize Supabase
-const supabaseUrl = 'https://your-supabase-url.supabase.co'; // Replace with your Supabase URL
-const supabaseAnonKey = 'your-anon-key'; // Replace with your Supabase anon key
+const supabaseUrl = 'https://irjihbqqdzmzqkkewbbu.supabase.co'; // Replace with your Supabase URL
+const supabaseAnonKey = 'process.env.SUPABASE_KEY'; // Replace with your Supabase anon key
 const supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
 
 const authContainer = document.getElementById('auth-container');
