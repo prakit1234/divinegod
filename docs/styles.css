@@ -46,7 +46,7 @@ body {
     height: 3px;
     background-color: #FFD700; /* Golden color */
     border-radius: 50%;
-    animation: float 5s infinite ease-in-out, move 10s infinite ease-in-out;
+    animation: float 2s infinite ease-in-out, move 4s infinite ease-in-out; /* Faster float and move animations */
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* Soft golden glow */
 }
 
@@ -62,7 +62,7 @@ body {
 .particle:nth-child(9) { top: 10%; left: 90%; }
 .particle:nth-child(10) { top: 90%; left: 20%; }
 
-/* Floating and moving animations */
+/* Faster floating and moving animations */
 @keyframes float {
     0% {
         transform: translateY(0);
