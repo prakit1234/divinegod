@@ -1,37 +1,122 @@
-#auth-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 8px;
-    margin-top: 20px;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOD AND HIS STORIES - Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Background Particles -->
+        <div class="background">
+            <div class="particles">
+                <!-- Add multiple particle divs for more particles -->
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+        </div>
 
-#auth-container input {
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 200px;
-}
+        <!-- Title and Description -->
+        <div class="title-container">
+            <h1 class="title">GOD AND HIS STORIES</h1>
+            <p class="description">Sign in to explore divine stories and knowledge.</p>
+        </div>
 
-#submitBtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+        <!-- Authentication Form -->
+        <div id="auth-container">
+            <h2 id="auth-title">Login</h2>
+            <!-- Email input -->
+            <input type="email" id="email" placeholder="Email" required>
+            <!-- Password input -->
+            <input type="password" id="password" placeholder="Password" required>
+            <!-- Submit Button -->
+            <button id="submitBtn">Login</button>
 
-#submitBtn:hover {
-    background-color: #45a049;
-}
+            <!-- Google Sign-In -->
+            <button id="googleSignInBtn">Sign in with Google</button>
 
-#toggleAuth {
-    cursor: pointer;
-    color: blue;
-    text-decoration: underline;
-}
+            <!-- Toggle between Login and Register -->
+            <p id="toggleAuth">Don't have an account? Register here</p>
+        </div>
+    </div>
 
+    <script>
+        // Initialize Supabase
+        const supabaseUrl = 'https://your-supabase-url.supabase.co'; // Replace with your Supabase URL
+        const supabaseAnonKey = 'your-anon-key'; // Replace with your Supabase anon key
+        const supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
+
+        const authContainer = document.getElementById('auth-container');
+        const authTitle = document.getElementById('auth-title');
+        const toggleAuth = document.getElementById('toggleAuth');
+        const submitBtn = document.getElementById('submitBtn');
+        const googleSignInBtn = document.getElementById('googleSignInBtn');
+
+        let isLogin = true;
+
+        // Toggle between Login and Register
+        toggleAuth.addEventListener('click', () => {
+            isLogin = !isLogin;
+            if (isLogin) {
+                authTitle.textContent = 'Login';
+                submitBtn.textContent = 'Login';
+                toggleAuth.textContent = "Don't have an account? Register here";
+            } else {
+                authTitle.textContent = 'Register';
+                submitBtn.textContent = 'Register';
+                toggleAuth.textContent = 'Already have an account? Login here';
+            }
+        });
+
+        // Handle Submit (Login or Register)
+        submitBtn.addEventListener('click', async () => {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                if (isLogin) {
+                    // Log in with email
+                    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+                    if (error) throw error;
+                    alert('Login successful!');
+                    // Redirect after login success
+                    window.location.href = 'your-success-url'; // Add your redirection URL here
+                } else {
+                    // Register with email
+                    const { data, error } = await supabase.auth.signUp({ email, password });
+                    if (error) throw error;
+                    alert('Registration successful!');
+                    // Redirect after registration success
+                    window.location.href = 'your-success-url'; // Add your redirection URL here
+                }
+            } catch (error) {
+                alert(error.message);
+            }
+        });
+
+        // Google Sign-In
+        googleSignInBtn.addEventListener('click', async () => {
+            try {
+                const { data, error } = await supabase.auth.signInWithOAuth({ provider: 'google' });
+                if (error) throw error;
+                alert('Google Sign-In successful!');
+                // Redirect after Google Sign-In success
+                window.location.href = 'your-success-url'; // Add your redirection URL here
+            } catch (error) {
+                alert(error.message);
+            }
+        });
+    </script>
+</body>
+</html>
