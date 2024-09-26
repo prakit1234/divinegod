@@ -100,12 +100,12 @@ body {
     background-color: #c23321;
 }
 
-#toggleAuth {
+#toggleAuth, #toggleToLogin {
     margin-top: 20px;
     cursor: pointer;
     color: #007bff;
 }
 
-#toggleAuth:hover {
+#toggleAuth:hover, #toggleToLogin:hover {
     text-decoration: underline;
 }
