@@ -10,9 +10,7 @@
 <body>
     <div class="container">
         <div class="background">
-            <div class="particles">
-                <!-- Particle effect will be handled by CSS/JS -->
-            </div>
+            <div class="particles"></div>
         </div>
         <div class="title-container">
             <h1 class="title">GOD AND HIS STORIES</h1>
@@ -26,6 +24,14 @@
             <button id="submitBtn" class="submit-button">Login</button>
             <button id="googleSignInBtn" class="google-button">Login with Google</button>
             <p id="toggleAuth">Don't have an account? Register here</p>
+        </div>
+
+        <div id="register-container" class="auth-container" style="display: none;">
+            <h2 id="register-title">Register</h2>
+            <input type="email" id="register-email" placeholder="Email" required>
+            <input type="password" id="register-password" placeholder="Password" required>
+            <button id="registerBtn" class="submit-button">Register</button>
+            <p id="toggleToLogin">Already have an account? Login here</p>
         </div>
 
         <script src="script.js"></script>
