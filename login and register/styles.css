@@ -3,7 +3,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background: url('https://example.com/your-divine-background.jpg') no-repeat center center fixed; /* Divine background image */
+    background: url('https://images.unsplash.com/photo-1567006785343-7e1e07459418?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGRpdmluZSUyMGJvdHRvbXxlbnwwfHx8fDE2OTM0Nzk0ODc&ixlib=rb-4.0.3&q=80&w=1080
+') no-repeat center center fixed; /* Divine background image */
     background-size: cover;
     color: #ffffff;
     text-align: center;
