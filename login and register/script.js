@@ -67,7 +67,7 @@ function onSignIn(googleUser) {
     }
 
     // Redirect to the main page after successful login
-    window.location.href = "https://notesgg.onrender.com"; // Redirect URL
+    window.location.href = "https://chooose-book.vercel.app/"; // Redirect URL
 }
 
 // Google Sign Out Functionality
