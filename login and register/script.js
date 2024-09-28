@@ -48,7 +48,7 @@ loginButton.addEventListener('click', () => {
 
     if (users[email] && users[email].password === password) {
         // Redirect to the main page after successful login
-        window.location.href = "https://notesgg.onrender.com"; // Redirect URL
+        window.location.href = "https://chooose-book.vercel.app/"; // Redirect URL
     } else {
         loginMessage.textContent = "Invalid email or password!";
     }
