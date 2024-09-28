@@ -22,7 +22,7 @@ function updateReadButton() {
 		readButton.className = 'read-button';
 		readButton.textContent = 'Read !!';
 		readButton.addEventListener('click', () => {
-			window.location.href = 'read.html'; // redirect to read.html page
+			window.location.href = 'https://bhagawatgita-oub11gml7-prakit1234s-projects.vercel.app/'; // redirect to read.html page
 		});
 		readButtonContainer.appendChild(readButton);
 		const selectedText = document.createElement('p');
