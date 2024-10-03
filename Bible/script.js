@@ -1,5 +1,5 @@
 function downloadPDF() {
-  window.location.href = 'r'; // Replace with actual download link for the PDF
+  window.location.href = 'https://www.mediafire.com/file/zk47vzu1ygbi4xp/bible.pdf/file'; // Replace with actual download link for the PDF
 }
 
 function downloadMP3() {
