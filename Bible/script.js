@@ -3,5 +3,5 @@ function downloadPDF() {
 }
 
 function downloadMP3() {
-  window.location.href = 'r'; // Replace with actual download link for the MP3
+  window.location.href = 'https://www.audiotreasure.com/indexKJV.htm'; // Replace with actual download link for the MP3
 }
